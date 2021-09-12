@@ -1,8 +1,54 @@
-body {
+:root {
+    --paddingRowsDefault: 60px 0;
+    --gapFlexDefault: 20px;
+    --fontFamilyDefault: 'Roboto';
+    --fontLight: #FEFEFE;
+    --fontDark: #313131;
+    --bgLight: #EFEFEF;
+    --bgTheme: #128c7e;
+    --bgDark: #273443;
+}
+
+/* body {
+    margin: 0;
+    padding: 0;
+} */
+
+* {
+    box-sizing: border-box;
+    font-family: var(--fontFamilyDefault), sans-serif;
+    text-decoration: none;
     margin: 0;
     padding: 0;
 }
 
-* {
-    box-sizing: border-box;
+header, footer {
+    text-align: center;
+}
+
+header {
+    background-color: var(--bgTheme);
+    padding: var(--paddingRowsDefault);
+}
+header * {
+    color: var(--fontLight);
+}
+
+footer {
+    padding: var(--paddingRowsDefault);
+    background-color: var(--bgDark);
+    display: flex;
+    flex-direction: column;
+    gap: var(--gapFlexDefault);
+}
+footer * {
+    color: var(--fontLight);
+}
+
+footer #links {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: var(--gapFlexDefault);
 }
