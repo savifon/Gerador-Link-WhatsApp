@@ -41,9 +41,14 @@
 
             <div class="inputGroup inputsLinkGenerated">
                 <label for="linkGenerated">
-                    Link gerado. Clique para copiar
-                    <input type="text" name="linkGenerated" class="copyLink" id="linkGenerated" readonly>
+                    Link gerado. Clique para copiar ou acessar
                 </label>
+                <div id="dvHrefLinkGenerated">
+                    <input type="text" name="linkGenerated" class="copyLink" id="linkGenerated" readonly>
+                    <a id="hrefLinkGenerated" href="" target="_blank">
+                        <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
             </div>
             
             <div class="inputGroup inputsGenerateLink">
@@ -53,7 +58,7 @@
             <div class="inputGroup inputsLinkGenerated">
                 <button type="button" class="copyLink" id="btCopyLink"><i class="far fa-copy"></i> COPIAR LINK</button>
             </div>
-            
+
             <div class="inputGroup inputsLinkGenerated">
                 <button type="reset" id="resetForm"><i class="fas fa-magic"></i> GERAR NOVO LINK</button>
             </div>

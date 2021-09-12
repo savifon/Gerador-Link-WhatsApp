@@ -122,6 +122,20 @@ main form .inputsLinkGenerated {
     display: none;
 }
 
+#dvHrefLinkGenerated {
+    position: relative;
+}
+
+#dvHrefLinkGenerated a {
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    width: initial;
+    padding: var(--paddingInputDefault);
+    background-color: var(--bgLight);
+    border-radius: var(--radiusDefault);
+}
+
 footer {
     padding: var(--paddingRowsDefault);
     background-color: var(--bgDark);

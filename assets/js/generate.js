@@ -1,8 +1,12 @@
 window.onload = function() {
     generateMask();
 
+    let link;
+
     const inputCopyLink = document.getElementById("linkGenerated");
-    const divsInputs = document.getElementsByClassName("inputGroup");
+    const btCopyLink = document.getElementById("btCopyLink");
+    const divInputs = document.getElementsByClassName("inputGroup");
+    const hrefLinkGenerated = document.getElementById("hrefLinkGenerated");
 
 	document.getElementById("form").onsubmit = function(e) {
 		e.preventDefault();
@@ -10,44 +14,54 @@ window.onload = function() {
         const tel = unMkaskTel(this.tel.value);
         const msg = formatMsgWhatsApp(this.msg.value);
 
-        const link = "https://wa.me/55"+tel+"?text="+msg;
+        link = "https://wa.me/55"+tel+"?text="+msg;
 
         inputCopyLink.value = link;
+        hrefLinkGenerated.href = link;
 
-        toggleInputs(divsInputs);
+        for (var i = 0; i < divInputs.length; i++) {
+            if (divInputs.item(i).classList.contains("inputsGenerateLink")) {
+                divInputs.item(i).style.display = "none";
+            } else if (divInputs.item(i).classList.contains("inputsLinkGenerated")) {
+                divInputs.item(i).style.display = "block";
+            }
+        }
 	}
 
     const btsCopyLink = document.getElementsByClassName("copyLink");
 
     for (var i = 0; i < btsCopyLink.length; i++) {
         btsCopyLink.item(i).onclick = function() {
-            copyLink();
+            copyLink(link);
         };
     }
 
     document.getElementById("resetForm").onclick = function() {
-        toggleInputs(divsInputs);
-    }
-}
-
-function formatMsgWhatsApp(msg) {
-    msg = msg.replaceAll(" ", "%20");
-    msg = msg.replaceAll("\n", "%0A");
-
-    return msg;
-}
-
-function copyLink() {
-}
-
-function toggleInputs(divs) {
-    for (var i = 0; i < divs.length; i++) {
-        const div = divs.item(i);
-        if (div.style.display === "none") {
-            div.style.display = "block";
-        } else {
-            div.style.display = "none";
+        for (var i = 0; i < divInputs.length; i++) {
+            if (divInputs.item(i).classList.contains("inputsGenerateLink")) {
+                divInputs.item(i).style.display = "block";
+            } else if (divInputs.item(i).classList.contains("inputsLinkGenerated")) {
+                divInputs.item(i).style.display = "none";
+            }
         }
     }
-    console.log(div.style.display);
+}
+
+function formatMsgWhatsApp(m) {
+    m = m.replaceAll(" ", "%20");
+    m = m.replaceAll("\n", "%0A");
+
+    return m;
+}
+
+function copyLink(l) {
+    navigator.clipboard.writeText(l).then(function() {
+        btCopyLink.textContent = "COPIADO!";
+
+        setTimeout(function(){
+            btCopyLink.innerHTML = `<i class="far fa-copy"></i> COPIAR LINK`;
+         }, 3000);
+    }, function(err) {
+        console.error('Erro ao copiar link ', err);
+    });
 }
