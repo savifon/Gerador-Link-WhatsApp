@@ -19,13 +19,7 @@ window.onload = function() {
         inputCopyLink.value = link;
         hrefLinkGenerated.href = link;
 
-        for (var i = 0; i < divInputs.length; i++) {
-            if (divInputs.item(i).classList.contains("inputsGenerateLink")) {
-                divInputs.item(i).style.display = "none";
-            } else if (divInputs.item(i).classList.contains("inputsLinkGenerated")) {
-                divInputs.item(i).style.display = "block";
-            }
-        }
+        toggleInputs(divInputs, "inputsGenerateLink");
 	}
 
     const btsCopyLink = document.getElementsByClassName("copyLink");
@@ -37,13 +31,7 @@ window.onload = function() {
     }
 
     document.getElementById("resetForm").onclick = function() {
-        for (var i = 0; i < divInputs.length; i++) {
-            if (divInputs.item(i).classList.contains("inputsGenerateLink")) {
-                divInputs.item(i).style.display = "block";
-            } else if (divInputs.item(i).classList.contains("inputsLinkGenerated")) {
-                divInputs.item(i).style.display = "none";
-            }
-        }
+        toggleInputs(divInputs, "inputsLinkGenerated");
     }
 }
 
@@ -54,14 +42,24 @@ function formatMsgWhatsApp(m) {
     return m;
 }
 
-function copyLink(l) {
-    navigator.clipboard.writeText(l).then(function() {
+function copyLink(strLink) {
+    navigator.clipboard.writeText(strLink).then(function() {
         btCopyLink.textContent = "COPIADO!";
 
-        setTimeout(function(){
+        setTimeout(function() {
             btCopyLink.innerHTML = `<i class="far fa-copy"></i> COPIAR LINK`;
          }, 3000);
     }, function(err) {
         console.error('Erro ao copiar link ', err);
     });
+}
+
+function toggleInputs(div, nameClass) {
+    for (var i = 0; i < div.length; i++) {
+        if (div.item(i).classList.contains(nameClass)) {
+            div.item(i).style.display = "none";
+        } else {
+            div.item(i).style.display = "block";
+        }
+    }
 }
