@@ -79,6 +79,7 @@ main form button {
     background-color: var(--bgTheme2);
     border-color: var(--bgTheme2);
     color: var(--fontLight);
+    cursor: pointer;
 }
 main form *:focus {
     border-color: var(--bgLight);
