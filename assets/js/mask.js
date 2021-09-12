@@ -1,15 +1,13 @@
-function maskTel(num) {
-    num = num.replace(/\D/g,"");
-    num = num.replace(/^(\d{2})(\d)/g,"($1) $2");
-    num = num.replace(/(\d)(\d{4})$/,"$1-$2");
+function maskTel(tel) {
+    tel = tel.replace(/\D/g,"");
+    tel = tel.replace(/^(\d{2})(\d)/g,"($1) $2");
+    tel = tel.replace(/(\d)(\d{4})$/,"$1-$2");
 
-    return num;
+    return tel;
 }
 
-function unMkaskTel(num) {
-    num = num.replace(/[^\w\\s]|_/g, "");
-
-    return num;
+function unMkaskTel(tel) {
+    return tel.replace(/[^\w\\s]|_/g, "");
 }
 
 function generateMask() {

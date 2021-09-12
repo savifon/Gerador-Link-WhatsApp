@@ -25,32 +25,50 @@
 
     <main>
         <form id="form">
-            <div>
+            <div class="inputGroup inputsGenerateLink">
                 <label for="tel">
                     Telefone do destinatário*
                 </label>
                 <input type="tel" name="tel" id="tel" placeholder="(00) 00000-0000" maxlength="15" required>
             </div>
-            <div>
+
+            <div class="inputGroup inputsGenerateLink">
                 <label for="msg">
                     Sua mensagem (opcional)
                 </label>
-                <textarea name="msg" id="msg" cols="30" rows="10" placeholder="Digite aqui a sua mensagem"></textarea>
+                <textarea name="msg" id="msg" cols="30" rows="5" placeholder="Digite aqui a sua mensagem"></textarea>
+            </div>
+
+            <div class="inputGroup inputsLinkGenerated">
+                <label for="linkGenerated">
+                    Link gerado. Clique para copiar
+                    <input type="text" name="linkGenerated" class="copyLink" id="linkGenerated" readonly>
+                </label>
             </div>
             
-            <div>
-                <button type="submit">GERAR LINK</button>
+            <div class="inputGroup inputsGenerateLink">
+                <button type="submit"><i class="fas fa-magic"></i> GERAR LINK</button>
+            </div>
+
+            <div class="inputGroup inputsLinkGenerated">
+                <button type="button" class="copyLink" id="btCopyLink"><i class="far fa-copy"></i> COPIAR LINK</button>
+            </div>
+            
+            <div class="inputGroup inputsLinkGenerated">
+                <button type="reset" id="resetForm"><i class="fas fa-magic"></i> GERAR NOVO LINK</button>
             </div>
         </form>
+
+        <p><i class="fas fa-info-circle"></i> Nenhum dado digitado é armazenado.</p>
     </main>
 
     <footer>
         <h3>Desenvolvido por Savio Fonseca</h3>
         <div id="links">
-            <a class="contacts" id="link" target="_blank" href="https://github.com/savifon">
+            <a class="contacts" id="linkGitHub" target="_blank" href="https://github.com/savifon">
                 <i class="fab fa-github"></i> GitHub
             </a>
-            <a class="contacts" id="link" target="_blank" href="https://www.linkedin.com/in/savio-fonseca-4304a3214/">
+            <a class="contacts" id="linkLinkedin" target="_blank" href="https://www.linkedin.com/in/savio-fonseca-4304a3214/">
                 <i class="fab fa-linkedin"></i> LinkedIn
             </a>
         </div>
