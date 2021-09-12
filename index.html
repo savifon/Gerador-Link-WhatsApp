@@ -13,6 +13,9 @@
     <script src="https://kit.fontawesome.com/64b9b7f637.js" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="assets/css/style.css">
+    
+    <script src="assets/js/mask.js"></script>
+    <script src="assets/js/generate.js"></script>
 </head>
 <body>
     
@@ -21,12 +24,12 @@
     </header>
 
     <main>
-        <form action="">
+        <form id="form">
             <div>
                 <label for="tel">
                     Telefone do destinatário*
                 </label>
-                <input type="tel" name="tel" id="tel" placeholder="(00) 00000-0000">
+                <input type="tel" name="tel" id="tel" placeholder="(00) 00000-0000" maxlength="15" required>
             </div>
             <div>
                 <label for="msg">
