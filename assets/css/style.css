@@ -48,6 +48,7 @@ textarea {
 
 header, footer {
     text-align: center;
+    min-height: 20vh;
 }
 
 header {
@@ -152,10 +153,6 @@ footer #links {
     flex-wrap: nowrap;
     justify-content: center;
     gap: var(--gapFlexDefault);
-}
-
-header, footer {
-    min-height: 20vh;
 }
 
 header, main, footer {
